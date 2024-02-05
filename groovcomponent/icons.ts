@@ -1,0 +1,36 @@
+// All icons from IcoMoon should be exported and used from this specific file.
+
+export const PDF_ICON = 'pdf';
+export const EYE_ICON = 'eye';
+export const SEND_ICON = 'send';
+export const INFO_ICON = 'info';
+export const CHAT_ICON = 'chat';
+export const HOME_ICON = 'home';
+export const CLIP_ICON = 'clip';
+export const PLUS_ICON = 'plus';
+export const BELL_ICON = 'bell';
+export const RING_ICON = 'ring';
+export const MAIL_ICON = 'mail';
+export const PLAY_ICON = 'play';
+export const PAUSE_ICON = 'pause';
+export const VIDEO_ICON = 'video';
+export const SMILE_ICON = 'smile';
+export const RESET_ICON = 'reset';
+export const DELETE_ICON = 'delete';
+export const PERSON_ICON = 'person';
+export const SEARCH_ICON = 'search';
+export const CAMERA_ICON = 'camera';
+export const CONTACT_ICON = 'contact';
+export const GALLERY_ICON = 'gallery';
+export const MESSAGE_ICON = 'message';
+export const DEVICES_ICON = 'devices';
+export const SETTINGS_ICON = 'settings';
+export const EYE_SLASH_ICON = 'eye-slash';
+export const DOCUMENTS_ICON = 'documents';
+export const HEADPHONE_ICON = 'headphone';
+export const WALLPAPER_ICON = 'wallpaper';
+export const MICROPHONE_ICON = 'microphone';
+export const BACK_ARROW_ICON = 'back-arrow';
+export const LOCK_CLOSED_ICON = 'lock-closed';
+export const TEMPERATURE_ICON = 'temperature';
+export const CIRCLE_CROSS_ICON = 'circle-cross';
