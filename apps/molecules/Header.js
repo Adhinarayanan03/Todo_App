@@ -1,29 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import H2 from '../atoms/H2';
+import {View} from 'react-native';
+import H1 from '../atoms/H1';
+import {
+  FLEX_ROW, 
+  ALIGN_CENTER, 
+  JUSTIFY_CENTER
+} from '../theme/style';
+import {WHITE_COLOR} from '../theme/colors';
 
-const Header = ({ title, backgroundColor, height,...restProps }) => {
+
+const Header = ({title, backgroundColor, height, ...restProps}) => {
   return (
-    <View style={ [styles.appBar, { backgroundColor, height }]} {...restProps}>
-      <H2  style={styles.title}>{title}</H2>
-
+    <View
+      style={[
+        FLEX_ROW,
+        ALIGN_CENTER,
+        JUSTIFY_CENTER,
+        {backgroundColor, height},
+      ]}
+      {...restProps}>
+      <H1 color={WHITE_COLOR}>{title}</H1>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  appBar: {
-    width: '100%', 
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    
-  },
-  title: {
-    fontSize:30,
-    color: '#FFFFFF', 
-    fontFamily: 'Jost-Bold' 
-  },
-});
 
 export default Header;

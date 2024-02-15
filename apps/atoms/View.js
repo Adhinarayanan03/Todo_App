@@ -1,64 +1,43 @@
 import React from 'react';
-import {View as RNView, StyleSheet} from 'react-native';
+import {View as RNView} from 'react-native';
+import {
+  FLEX_ROW, 
+  ALIGN_CENTER, 
+  JUSTIFY_CENTER
+} from '../theme/style';
 
-const View = React.memo(
-  // React.memo => preventing unnecessary renders if the props do not change.
+const CustomView = React.memo(
   ({
-    flexrow,
+    flexRow,
     flex,
     width,
     height,
-    hCenter,
-    vCenter,
-    hPadding,
-    vPadding,
-    borderColor,
+    verticalCenter,
+    horizontalCenter,
+    paddingVertical,
+    paddingHorizontal,
     spaceBetween,
     backgroundColor,
     style,
     ...rest
-  }) => (
-    // RNView => without conflicting with any other View components you may import from other 
-    <RNView
-      style={[
-        flexrow
-          ? {
-              ...styles.row,
-              ...(vCenter && styles.alignCenter),
-              ...(hCenter && styles.justifyCenter),
-            }
-          : {
-              ...(hCenter && styles.alignCenter),
-              ...(vCenter && styles.justifyCenter),
-            },
-        spaceBetween && styles.spaceBetween,
-        flex && {flex},
-        borderColor && {borderColor},
-        backgroundColor && {backgroundColor},
-        vPadding && {paddingVertical: vPadding},
-        hPadding && {paddingHorizontal: hPadding},
-        height && { height},
-        width && {width},
-        style,
-      ]}
-      {...rest}></RNView>
-  ),
+  }) => {
+    const containerStyles = [
+      flexRow && {
+        ...FLEX_ROW,
+        ...(verticalCenter && ALIGN_CENTER),
+        ...(horizontalCenter && JUSTIFY_CENTER),
+      },
+      flex && {flex},
+      backgroundColor && {backgroundColor},
+      paddingVertical && {paddingVertical},
+      paddingHorizontal && {paddingHorizontal},
+      height && {height},
+      width && {width},
+      style,
+    ];
+
+    return <RNView style={containerStyles} {...rest}></RNView>;
+  },
 );
 
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-  },
-  alignCenter: {
-    alignItems: 'center',
-  },
-  justifyCenter: {
-    justifyContent: 'center',
-  },
-  spaceBetween: {
-    justifyContent: 'space-between',
-  },
-});
-
-export default View;
-
+export default CustomView;

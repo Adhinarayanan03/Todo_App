@@ -1,29 +1,30 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
-import Arrow from 'react-native-vector-icons/AntDesign';
-import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
-import {addTask, editTask} from '../actions/taskActions';
+import {useNavigation} from '@react-navigation/native';
+import Arrow from 'react-native-vector-icons/AntDesign';
+import {
+  addTask, 
+  editTask
+} from '../actions/taskActions';
 import View from '../atoms/View';
-import TextComponent from '../molecules/Textcomponent';
-import CustomButton from '../molecules/Buttoncomponent';
-
 import Header from '../molecules/Header';
-import {LARGE, SMALL} from '../theme/layout';
-import {WHITE_COLOR} from '../theme/colors';
+import CustomButton from '../molecules/Button';
+import TextComponent from '../molecules/Textcomponent';
+import {PRIMARY_COLOR, WHITE_COLOR} from '../theme/colors';
+import { 
+  LARGE, MEDIUM, 
+  POSITION_ABSOLUTE, 
+  SMALL 
+} from '../theme/style';
+
 
 const TaskScreen = ({route}) => {
-  // console.log(route, "KJHKJHHJ")
-
+  const headerHeight = 100;
   const {task} = route?.params;
-
-  // console.log(task, "KJHKJHHJ")
-
-  const [titleValue, setTitleValue] = useState(task?.title || '');
-  const [detailValue, setDetailValue] = useState(task?.detail || '');
-
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const [titleValue, setTitleValue] = useState(task?.title || '');
+  const [detailValue, setDetailValue] = useState(task?.detail || '');
 
   const handleAddTask = () => {
     const timestamp = new Date().getTime();
@@ -31,11 +32,6 @@ const TaskScreen = ({route}) => {
   };
 
   const handleEditTask = () => {
-    const timestamp = new Date().getTime();
-    console.log(task.id, 'id');
-    console.log(task.titleValue, 'titleValue');
-    console.log(task.detailValue, 'detailValue');
-
     dispatch(editTask(task.id, titleValue, detailValue));
   };
 
@@ -57,35 +53,38 @@ const TaskScreen = ({route}) => {
     <View backgroundColor={WHITE_COLOR} flex={1}>
       <Header
         title={task ? 'Edit Task' : 'Add Task'}
-        backgroundColor="#9395D3"
-        height={100}
+        backgroundColor={PRIMARY_COLOR}
+        height={headerHeight}
       />
 
-      <View style={styles.arrow} hPadding={LARGE} vPadding={LARGE}>
+      <View style={POSITION_ABSOLUTE} margin={SMALL} paddingVertical={LARGE} paddingHorizontal={MEDIUM}>
         <Arrow
           name="arrowleft"
-          size={30}
+          size={LARGE}
           color={WHITE_COLOR}
           onPress={backToHome}
         />
       </View>
 
-      <View hPadding={LARGE} vPadding={LARGE}>
+      <View paddingHorizontal={LARGE} paddingVertical={LARGE}>
         <View>
           <TextComponent
             title="Title"
             value={titleValue}
             onChangeText={text => setTitleValue(text)}
+            fontSize={MEDIUM}
           />
           <TextComponent
             title="Detail"
             value={detailValue}
             onChangeText={text => setDetailValue(text)}
+            fontSize={MEDIUM}
+
           />
         </View>
       </View>
 
-      <View vPadding={SMALL} hPadding={LARGE}>
+      <View paddingVertical={SMALL} paddingHorizontal={LARGE} >
         <CustomButton
           title={task ? 'Update' : 'Add'}
           onPress={handleButtonPress}
@@ -96,19 +95,5 @@ const TaskScreen = ({route}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  buttonStyle: {
-    borderRadius: 16,
-    flexDirection: 'row',
-    paddingHorizontal: 40,
-    justifyContent: 'space-between',
-    alignSelf: 'center',
-    width: '100%',
-  },
-  arrow: {
-    position: 'absolute',
-    marginTop: 10,
-  },
-});
 
 export default TaskScreen;

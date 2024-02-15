@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-const H3 = ({ children,...restProps  }) => {
+const H3 = ({ children,color,...restProps  }) => {
   return (
-    <Text style={styles.customH3}{...restProps}
-    >{children}</Text>
+    <Text style={[styles.customH3, { color }]} {...restProps}>
+    {children}</Text>
   );
 };
 

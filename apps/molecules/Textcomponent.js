@@ -1,29 +1,22 @@
 import React from 'react';
-import {  StyleSheet, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
+import { MEDIUM } from '../theme/style';
+import { GREY_COLOR, LIGHT_GREY } from '../theme/colors';
 
-const TextComponent = ({ title,value,onChangeText}) => {
+const TextComponent = ({ title,value,fontSize,onChangeText}) => {
   return (
     <TextInput
-      style={styles.title}
-      placeholder={title}
-      placeholderTextColor="#8B8787"
+      style={fontSize && {fontSize}}
       value={value}
+      color={GREY_COLOR}
+      placeholder={title}
+      marginBottom={MEDIUM}
+      borderBottomWidth={1}
+      borderColor={LIGHT_GREY}
       onChangeText={onChangeText}
+      placeholderTextColor={GREY_COLOR}
     />
   );
 };
-
-
-
-const styles = StyleSheet.create({
-  title: {
-    fontFamily:'Jost',
-    fontSize: 16,
-    color: '#8B8787',
-    borderBottomWidth: 1,
-    borderColor: "#8B8787",
-    marginBottom:20
-  },
-});
 
 export default TextComponent;

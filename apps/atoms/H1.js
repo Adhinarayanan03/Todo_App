@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-const H1 = ({ children,...restProps }) => {
+const H1 = ({ children,color,...restProps }) => {
   return (
-    <Text style={styles.customH1} {...restProps}>
+    <Text style={[styles.customH1, { color }]} {...restProps}>
       {children}</Text>
   );
 };
