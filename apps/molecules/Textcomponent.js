@@ -1,7 +1,10 @@
 import React from 'react';
 import { TextInput } from 'react-native';
 import { MEDIUM } from '../theme/style';
-import { GREY_COLOR, LIGHT_GREY } from '../theme/colors';
+import {
+  GREY_COLOR,
+  LIGHT_GREY,
+} from '../theme/colors';
 
 const TextComponent = ({ title,value,fontSize,onChangeText}) => {
   return (

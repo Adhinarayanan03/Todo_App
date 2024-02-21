@@ -1,10 +1,9 @@
-// App.js
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from './apps/pages/HomeScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Provider} from 'react-redux';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import store from './apps/store';
+import HomeScreen from './apps/pages/HomeScreen';
 import TaskScreen from './apps/pages/Taskscreen';
 
 const Stack = createNativeStackNavigator();
