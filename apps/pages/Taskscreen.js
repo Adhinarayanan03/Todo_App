@@ -88,6 +88,8 @@ const TaskScreen = ({route}) => {
         <CustomButton
           title={task ? 'Update' : 'Add'}
           onPress={handleButtonPress}
+          borderRadius={MEDIUM}
+          paddingVertical={MEDIUM}
           disabled={titleValue === '' || detailValue === ''}
         />
       </View>
